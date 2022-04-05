@@ -44,8 +44,8 @@ namespace StoreChain.Model
             foreach (var prVal in productList)
             {
                 _products[prVal.Key].amount -= prVal.Value;
-                prVal.Key.GenerateBillInfo(_products[prVal.Key].price, _products[prVal.Key].amount);
-                billList.Add(new ProductBillInfo());
+                var billInfo = prVal.Key.GenerateBillInfo(_products[prVal.Key].price, prVal.Value);
+                billList.AddRange(billInfo);
             }
             var bill = new Bill(generateBillId(), DateTime.Now, customer, billList);
             

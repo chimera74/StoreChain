@@ -21,7 +21,7 @@ namespace StoreChain.Model
             {
                 ProductWithSerial singleProduct = this.MemberwiseClone() as ProductWithSerial;
                 singleProduct.GenerateSerialNumber();
-                billInfo.Add(new ProductBillInfo() { product = singleProduct, price = price, amount = amount });
+                billInfo.Add(new ProductBillInfo() { product = singleProduct, price = price, amount = 1 });
             };
             return billInfo;
         }

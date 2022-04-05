@@ -94,7 +94,7 @@ namespace StoreChain
             
             var shopList4 = new Dictionary<Product, int>()
             {   
-                {medicine, 49},
+                {medicine, 1},
                 {drink, 5}
             };
             PrintPurchaseResult(pharmacy1.Purchase(shopList4, customer));
@@ -128,8 +128,8 @@ namespace StoreChain
                 Console.WriteLine(product.product.Name +
                                   (product.product is ProductWithSerial serial ? (": " + serial.SerialNumber) : "")
                                   + " | " + product.price + " | " + product.amount);
-                Console.WriteLine();
             }
+            Console.WriteLine();
         } 
     }
 }
