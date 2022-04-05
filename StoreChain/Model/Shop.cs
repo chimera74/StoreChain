@@ -33,8 +33,8 @@ namespace StoreChain.Model
             {
                 if (!_products.ContainsKey(prVal.Key) || _products[prVal.Key].amount - prVal.Value < 0)
                 {
-                    Console.WriteLine("Unable to carry on the purchase. " + prVal.Key.Name + "required:" + prVal.Value +
-                                      ", in stock: " + _products[prVal.Key] + ".");
+                    Console.WriteLine("Unable to carry on the purchase. \"" + prVal.Key.Name + "\" required: " + prVal.Value +
+                                      ", in stock: " + _products[prVal.Key].amount + ".");
                     return null;
                 }
             }

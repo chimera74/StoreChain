@@ -114,14 +114,24 @@ namespace StoreChain
                 {food, 5},
             };
             PrintPurchaseResult(supermarket1.Purchase(shopList6, customer));
+            
+            // invalid purchase
+            var shopList7 = new Dictionary<Product, int>()
+            {   
+                {toy, 2}
+            };
+            PrintPurchaseResult(cshop1.Purchase(shopList7, customer));
 
         }
 
         public static void PrintPurchaseResult(Bill bill)
         {
             if (bill is null)
+            {
                 Console.WriteLine("Purchase did not go through");
-            
+                return;
+            }
+
             Console.WriteLine("Bill ID:" + bill.id);
             foreach (var product in bill.productList)
             {
@@ -129,6 +139,7 @@ namespace StoreChain
                                   (product.product is ProductWithSerial serial ? (": " + serial.SerialNumber) : "")
                                   + " | " + product.price + " | " + product.amount);
             }
+            Console.WriteLine("Total: " + bill.GetTotal());
             Console.WriteLine();
         } 
     }
