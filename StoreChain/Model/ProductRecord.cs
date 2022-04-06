@@ -2,12 +2,12 @@
 
 namespace StoreChain.Model
 {
-    public class ProductStockInfo
+    public class ProductRecord
     {
         public float price;
         public int amount;
 
-        public ProductStockInfo(float price, int amount)
+        public ProductRecord(float price, int amount)
         {
             this.price = price;
             this.amount = amount;

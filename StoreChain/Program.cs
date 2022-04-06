@@ -48,14 +48,14 @@ namespace StoreChain
             shops.Add(cshop1);
             
             var pharmacy1 = new Pharmacy()
-                { Name = "Corner Shop 1" };
+                { Name = "Pharmacy 1" };
             pharmacy1.SetStock(medicine, 9.99f, 50);
             pharmacy1.SetStock(drink, 1.99f, 50);
             pharmacy1.SetStock(ticket, 2.50f, 1000);
             shops.Add(pharmacy1);
             
             var supermarket1 = new Supermarket()
-                { Name = "Corner Shop 1" };
+                { Name = "Supermarket 1" };
             supermarket1.SetStock(drink, 1.99f, 50);
             supermarket1.SetStock(food, 1.99f, 50);
             supermarket1.SetStock(ticket, 2.50f, 1000);
@@ -121,6 +121,13 @@ namespace StoreChain
                 {toy, 2}
             };
             PrintPurchaseResult(cshop1.Purchase(shopList7, customer));
+            
+            // generate all reports
+            Console.WriteLine(PurchaseRecord.GenerateReportHeader());
+            foreach (var shop in shops)
+            {
+                shop.GenerateReport(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now);
+            }
 
         }
 
